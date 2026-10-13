@@ -31,16 +31,16 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .gh{padding:9px 18px;font-size:14px}
 section{position:relative}
 #hero{min-height:100svh;display:grid;align-items:center;overflow:hidden;
-background:radial-gradient(ellipse 70% 60% at calc(50% + 250px) 50%,#12306a 0%,#0a1330 40%,var(--bg) 75%)}
+background:radial-gradient(ellipse 80% 70% at 62% 50%,#0c1a42 0%,#0a1330 40%,var(--bg) 75%)}
 #stars{position:absolute;inset:0;width:100%;height:100%}
-.hero-in{position:relative;z-index:2;padding-top:100px;padding-bottom:80px}
-.hero-text{max-width:560px}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:24px;padding-top:100px;padding-bottom:80px}
+.hero-text{max-width:560px;position:relative;z-index:2}
 .label{display:inline-block;font-size:13px;letter-spacing:.32em;color:var(--gold);margin-bottom:26px;padding-left:46px;position:relative}
 .label::before{content:"";position:absolute;left:0;top:50%;width:34px;height:1px;background:var(--gold)}
 h1{font-size:clamp(44px,7vw,88px);letter-spacing:-.01em;text-shadow:0 0 60px #6fb4ff44}
 .hero-text p{color:var(--mute);font-size:18px;max-width:470px;margin:26px 0 38px}
 .ctas{display:flex;gap:14px;flex-wrap:wrap}
-.astra{position:absolute;z-index:1;right:calc(max(0px,(100vw - 1180px)/2) - 90px);top:50%;width:min(78vw,860px);aspect-ratio:1;transform:translateY(-50%);pointer-events:none}
+.astra{position:relative;z-index:1;justify-self:center;width:140%;max-width:820px;aspect-ratio:1;pointer-events:none}.astra::before{content:"";position:absolute;inset:-25%;z-index:-1;background:radial-gradient(circle,#12306a99,transparent 65%)}
 .astra svg{width:100%;height:100%;overflow:visible}
 .spin{transform-origin:400px 400px;animation:spin 140s linear infinite}
 .spin2{transform-origin:400px 400px;animation:spin 90s linear infinite reverse}
@@ -51,22 +51,14 @@ h1{font-size:clamp(44px,7vw,88px);letter-spacing:-.01em;text-shadow:0 0 60px #6f
 .intro>*:nth-child(2){animation-delay:.2s}.intro>*:nth-child(3){animation-delay:.4s}.intro>*:nth-child(4){animation-delay:.6s}
 .astra{opacity:0;animation:fade 2.4s .1s ease forwards}
 @keyframes in{to{opacity:1;transform:none}}@keyframes fade{to{opacity:1}}
-@media(max-width:860px){#hero{background:radial-gradient(ellipse 90% 50% at 50% 34%,#12306a 0%,#0a1330 40%,var(--bg) 75%)}.astra{width:130vw;right:-40vw;top:34%;opacity:.55!important}.links a.h{display:none}.hero-in{padding-top:140px}}
+@media(max-width:860px){.links a.h{display:none}.hero-in{grid-template-columns:1fr;padding-top:96px;gap:0}.astra{grid-row:1;width:min(96vw,480px);max-width:none;margin:0 auto -30px}.hero-text{margin:0 auto}}
 .pad{padding:150px 0}
 #philosophy .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
 #philosophy h2{font-size:clamp(34px,4.6vw,58px)}
 #philosophy p{color:var(--mute);margin:0 0 22px;max-width:520px}
 #philosophy p b{color:var(--gold);font-weight:500}
 .sans{font-family:Marcellus,serif;font-size:26px;color:var(--text);line-height:1.4;max-width:520px!important}
-.ph{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px}
-.pillar{padding:48px 40px 56px;border-left:1px solid #c9a45c33;position:relative;transition:background .5s}
-.pillar:hover{background:linear-gradient(#6fb4ff10,transparent)}
-.pillar svg.fig{width:110px;height:110px;margin-bottom:34px;overflow:visible}
-.pillar h3{font-size:32px;margin-bottom:12px;color:var(--text)}
-.pillar p{color:var(--mute);margin:0;font-size:16px}
-#highlights .head{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap}
-#highlights h2{font-size:clamp(32px,4vw,52px);max-width:560px}
-@media(max-width:860px){#philosophy .wrap{grid-template-columns:1fr;gap:30px}.ph{grid-template-columns:1fr}.pillar{border-left:0;border-top:1px solid #c9a45c33;padding:40px 4px}.pad{padding:100px 0}}
+@media(max-width:860px){#philosophy .wrap{grid-template-columns:1fr;gap:30px}.pad{padding:100px 0}}
 #close{text-align:center;overflow:hidden;padding:190px 0;background:radial-gradient(ellipse 60% 55% at 50% 50%,#12306a99,transparent 70%)}
 #close svg.halo{position:absolute;left:50%;top:50%;width:min(130vw,1000px);transform:translate(-50%,-50%);opacity:.5;pointer-events:none}
 #close .wrap{position:relative;z-index:2}
@@ -77,7 +69,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 footer .f{display:flex;gap:26px}footer .f a:hover{color:var(--text)}
 .rv{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s}
 .rv.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.intro>*,.astra,.rv{opacity:1!important;transform:none!important}.astra{transform:translateY(-50%)!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.intro>*,.astra,.rv{opacity:1!important;transform:none!important}}
 .sr{position:absolute;left:-9999px}
 </style>
 </head>
@@ -91,13 +83,20 @@ footer .f{display:flex;gap:26px}footer .f a:hover{color:var(--text)}
 
 <nav aria-label="Primary"><div class="wrap">
 <a class="mark" href="#top" aria-label="Narayanastra home"><svg><use href="#logo"/></svg>NARAYANASTRA</a>
-<div class="links"><a class="h" href="#philosophy">Philosophy</a><a class="h" href="#highlights">Principles</a><a class="h" href="#close">Project</a>
+<div class="links"><a class="h" href="#philosophy">Philosophy</a><a class="h" href="#close">Project</a>
 <a class="btn ghost gh" href="https://github.com/d0r1h/Narayanastra" rel="noopener"><svg><use href="#gh"/></svg>GitHub</a></div>
 </div></nav>
 
 <main id="top">
 <section id="hero">
 <canvas id="stars" aria-hidden="true"></canvas>
+<div class="wrap hero-in"><div class="hero-text intro">
+<span class="label">FORGED IN INTELLIGENCE</span>
+<h1>Unleash the Power of Intelligence.</h1>
+<p>Narayanastra is an open-source, local-first coding agent. It explores your codebase, plans fixes, runs tests, and repairs bugs on your machine with open-weight models.</p>
+<div class="ctas"><a class="btn gold" href="#philosophy">Explore the Project <svg><use href="#arrow"/></svg></a>
+<a class="btn ghost" href="https://github.com/d0r1h/Narayanastra" rel="noopener"><svg><use href="#gh"/></svg>View on GitHub</a></div>
+</div>
 <div class="astra" aria-hidden="true">
 <svg viewBox="0 0 800 800">
 <defs>
@@ -117,13 +116,7 @@ footer .f{display:flex;gap:26px}footer .f a:hover{color:var(--text)}
 </g>
 <g style="filter:drop-shadow(0 0 18px #f3d9a0aa)"><use href="#logo" x="270" y="270" width="260" height="260"/></g>
 </svg></div>
-<div class="wrap hero-in"><div class="hero-text intro">
-<span class="label">FORGED IN INTELLIGENCE</span>
-<h1>Unleash the Power of Intelligence.</h1>
-<p>Narayanastra is an open-source, local-first coding agent. It explores your codebase, plans fixes, runs tests, and repairs bugs on your machine with open-weight models.</p>
-<div class="ctas"><a class="btn gold" href="#highlights">Explore the Project <svg><use href="#arrow"/></svg></a>
-<a class="btn ghost" href="https://github.com/d0r1h/Narayanastra" rel="noopener"><svg><use href="#gh"/></svg>View on GitHub</a></div>
-</div></div>
+</div>
 </section>
 
 <section id="philosophy" class="pad"><div class="wrap">
@@ -131,17 +124,6 @@ footer .f{display:flex;gap:26px}footer .f a:hover{color:var(--text)}
 <div class="rv">
 <p class="sans">In the Mahabharata, the Narayanastra grows stronger against those who resist it, and yields to those who lay down their arms.</p>
 <p>We took the idea, not the myth: power should respond to the problem in front of it. Narayanastra is built on <b>precision</b>, <b>intelligence</b>, <b>adaptability</b> and <b>purposeful power</b> — capability that meets complexity with calm.</p>
-</div></div></section>
-
-<section id="highlights" class="pad" style="padding-top:20px"><div class="wrap">
-<div class="head rv"><h2>Three principles. One direction.</h2></div>
-<div class="ph rv">
-<div class="pillar"><svg class="fig" viewBox="-60 -60 120 120" fill="none" stroke="#f3d9a0"><circle r="50" stroke-opacity=".3"/><circle r="30" stroke-opacity=".5"/><circle r="10"/><path d="M-60 0H-14M14 0H60M0-60v46M0 14v46" stroke="#6fb4ff"/></svg>
-<h3>Precision</h3><p>Intelligence directed toward the right objective, and nothing else.</p></div>
-<div class="pillar"><svg class="fig" viewBox="-60 -60 120 120" fill="none" stroke="#f3d9a0"><ellipse rx="52" ry="18" transform="rotate(-30)"/><ellipse rx="52" ry="18" transform="rotate(30)" stroke="#6fb4ff"/><ellipse rx="52" ry="18" transform="rotate(90)" stroke-opacity=".5"/><circle r="5" fill="#f3d9a0"/></svg>
-<h3>Adaptability</h3><p>The ability to respond intelligently as conditions change.</p></div>
-<div class="pillar"><svg class="fig" viewBox="-60 -60 120 120" fill="none" stroke="#f3d9a0"><g id="pw"></g><circle r="9" fill="#fff" stroke="none"/></svg>
-<h3>Power</h3><p>Transforming complex capabilities into practical outcomes.</p></div>
 </div></div></section>
 
 <section id="close" class="pad">
@@ -165,8 +147,6 @@ function el(p,t,a){var e=document.createElementNS(N,t);for(var k in a)e.setAttri
 var rays=document.getElementById('rays');
 for(var i=0;i<96;i++){var a=i/96*Math.PI*2,r1=60+(i%3)*14,r2=i%4==0?400:i%2?300:350;
 el(rays,'line',{x1:400+Math.cos(a)*r1,y1:400+Math.sin(a)*r1,x2:400+Math.cos(a)*r2,y2:400+Math.sin(a)*r2,'stroke-width':i%4==0?1.6:.8,'stroke-opacity':i%4==0?.9:.45})}
-var pw=document.getElementById('pw');
-for(var q=0;q<16;q++){var c=q/16*Math.PI*2;el(pw,'line',{x1:Math.cos(c)*14,y1:Math.sin(c)*14,x2:Math.cos(c)*(q%2?34:56),y2:Math.sin(c)*(q%2?34:56),stroke:q%2?'#6fb4ff':'#f3d9a0'})}
 // stars
 var cv=document.getElementById('stars'),cx=cv.getContext('2d'),S=[],W,H,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,vis=true;
 function size(){var d=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
